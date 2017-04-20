@@ -57,6 +57,12 @@ def test_with_generate_edf():
   assert len(partial_sine) == 10 * 100
   assert len(partial_block) == 10 * 12.8
   
+  try:
+    partial_reader.select_records(offset=12, amount=1)
+    assert False
+  except EDFInvalidOffset:
+    pass
+  
 
 def test_edfplus_tal():
   mult_annotations = '+180\x14Lights off\x14Close door\x14\x00'
