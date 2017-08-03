@@ -19,7 +19,10 @@ log = logging.getLogger(__name__)
 
 class EDFEndOfData: pass
 
-class EDFInvalidOffset(Exception): pass
+class EDFInvalidOffset(Exception): 
+  
+  def __init__(self, message):
+    super(EDFInvalidOffset, self).__init__(message)
 
 
 def tal(tal_str):
